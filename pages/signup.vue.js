@@ -1,36 +1,41 @@
-const Login = {
+const Signup = {
     template: `<div class="row g-0 app-auth-wrapper">
     <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
         <div class="d-flex flex-column align-content-end">
             <div class="app-auth-body mx-auto">	
-                <div class="app-auth-branding mb-4"><a class="app-logo" href="index.html"><img class="logo-icon me-2" src="assets/images/app-logo.svg" alt="logo"></a></div>
-                <h2 class="auth-heading text-center mb-5">Log in to {{ this.$root.appName }}</h2>
-                <div class="auth-form-container text-start">
+            <div class="app-auth-branding mb-4"><a class="app-logo" href="index.html"><img class="logo-icon me-2" src="assets/images/app-logo.svg" alt="logo"></a></div>
+            <h2 class="auth-heading text-center mb-4">Sign up to {{ this.$root.appName }}</h2>					
 
-                <div class="error" v-if="validationErrors.length > 0" style="color:red; margin-bottom: 1em;">
-                   <div v-for="error in validationErrors" class="alert alert-warning alert-dismissible fade show" role="alert">
-                       {{ error }}
-                   </div>
-               </div>
-
-                <form class="pt-1" @submit.prevent="validateAndSubmit">
-                     <div class="form-group">
-                         <input type="text" class="form-control" v-model="username" @input="validate" placeholder="Your Username *" value="" />
-                     </div>
-                     <div class="form-group">
-                        <input type="password" class="form-control" v-model="password" @input="validate" placeholder="Your Password *" value="" />
-
-                        <div class="extra mt-3 row justify-content-between"><div class="col-6"><div class="form-check"><input type="checkbox" value="" id="RememberPassword" class="form-check-input"> <label for="RememberPassword" class="form-check-label">Remember me</label></div></div> <div class="col-6"><div class="forgot-password text-end"><a href="reset-password.html">Forgot password?</a></div></div></div>
-
-                     </div>
-                     <div class="form-group mt-4">
-                         <button type="submit" class="btn app-btn-primary w-100 theme-btn mx-auto">Log In</button>
-                     </div>
-                </form>
-
+            <div class="auth-form-container text-start mx-auto">
+                <form class="auth-form auth-signup-form">         
+                    <div class="email mb-3">
+                        <label class="sr-only" for="signup-email">Your Name</label>
+                        <input id="signup-name" name="signup-name" type="text" class="form-control signup-name" placeholder="Full name" required="required">
+                    </div>
+                    <div class="email mb-3">
+                        <label class="sr-only" for="signup-email">Your Email</label>
+                        <input id="signup-email" name="signup-email" type="email" class="form-control signup-email" placeholder="Email" required="required">
+                    </div>
+                    <div class="password mb-3">
+                        <label class="sr-only" for="signup-password">Password</label>
+                        <input id="signup-password" name="signup-password" type="password" class="form-control signup-password" placeholder="Create a password" required="required">
+                    </div>
+                    <div class="extra mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="RememberPassword">
+                            <label class="form-check-label" for="RememberPassword">
+                            I agree to Portal's <a href="#" class="app-link">Terms of Service</a> and <a href="#" class="app-link">Privacy Policy</a>.
+                            </label>
+                        </div>
+                    </div><!--//extra-->
                     
-                    <div class="auth-option text-center pt-5">No Account? Sign up <router-link to="/signup">here</router-link>.</div>
-                </div><!--//auth-form-container-->	
+                    <div class="text-center">
+                        <button type="submit" class="btn app-btn-primary w-100 theme-btn mx-auto">Sign Up</button>
+                    </div>
+                </form><!--//auth-form-->
+                
+                <div class="auth-option text-center pt-5">Already have an account? <a class="text-link" href="login.html" >Log in</a></div>
+            </div><!--//auth-form-container-->		
 
             </div><!--//auth-body-->
             <Footer/>
@@ -59,44 +64,7 @@ const Login = {
     background:url('~./images/background/background-1.jpg') no-repeat center center;
     background-size:cover;height:100vh;min-height:100%;
   }
-</style>
-`,
-    
-    // `
-    // <template class="login fadeInDown">
-    //     <div class="container login-container">
-    //         <div class="row d-flex justify-content-center">
-    //             <div class="col-md-6 login-form">
-    //                 <h3>{{ this.$root.appName }}</h3>
-                    
-    //                 <div class="error" v-if="validationErrors.length > 0" style = "color:red; margin-bottom: 1em;">
-    //                     <div v-for="error in validationErrors" class="alert alert-warning alert-dismissible fade show" role="alert">
-    //                         {{ error }}
-    //                     </div>
-    //                 </div>
-
-    //                 <form class="pt-1" @submit.prevent="validateAndSubmit">
-    //                     <div class="form-group">
-    //                         <input type="text" class="form-control" v-model="username" @input="validate" placeholder="Your Username *" value="" />
-    //                     </div>
-    //                     <div class="form-group">
-    //                         <input type="password" class="form-control" v-model="password" @input="validate" placeholder="Your Password *" value="" />
-    //                     </div>
-    //                     <div class="form-group mt-4">
-    //                         <input type="submit" class="btnSubmit btn-block" value="Login" />
-    //                     </div>
-    //                     <div class="form-group">
-
-    //                         <a href="#" class="ForgetPwd" value="Login">Forget Password?</a>
-    //                     </div>
-    //                 </form>
-    //             </div>
-    //         </div>
-    //     </div>
-
-    //     <!-- <Footer/> -->
-
-    // </template>`,
+</style>`,
 
     data() {
         return {
@@ -116,10 +84,6 @@ const Login = {
             // fetch URLs from root
             return this.$root.apiurls;
         },
-    },
-    async beforeCreate() {
-        const authUser =  await this.$root.fetchAuthStatus();
-        if (authUser) this.$router.push('/')
     },
     methods: {
         async login() {

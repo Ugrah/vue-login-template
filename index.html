@@ -84,6 +84,7 @@
 
     <!-- Pages -->
     <script src="./pages/login.vue.js"></script>
+    <script src="./pages/signup.vue.js"></script>
 
     <script src="./pages/home.vue.js"></script>
     <script src="./pages/profile.vue.js"></script>
@@ -100,6 +101,7 @@
 
         Vue.component("Home", Home);
         Vue.component("Login", Login);
+        Vue.component("Signup", Signup);
         Vue.component("Profile", Profile);
         Vue.component("Settings", Settings);
 
@@ -116,6 +118,10 @@
             {
                 path: "/login",
                 component: Login,
+            },
+            {
+                path: "/signup",
+                component: Signup,
             },
             {
                 path: "/profile",
