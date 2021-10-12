@@ -16,7 +16,7 @@ jobs:
       with:
         server: ${{ secrets.TEMPLATE_TEST_HOST }}
         username: ${{ secrets.TEMPLATE_TEST_FTP_USERNAME }}
-        password: ${{ secrets.TEMPLATE_TESTE_FTP_PASS }}
+        password: ${{ secrets.TEMPLATE_TEST_PASS }}
         exclude: .git*
           - .git*/**
           - node_modules/**
