@@ -4,7 +4,7 @@ const Signup = {
         <div class="d-flex flex-column align-content-end">
             <div class="app-auth-body mx-auto">	
             <div class="app-auth-branding mb-4"><a class="app-logo" href="index.html"><img class="logo-icon me-2" src="assets/images/app-logo.svg" alt="logo"></a></div>
-            <h2 class="auth-heading text-center mb-4">Sign up to {{ this.$root.appName }}</h2>					
+            <h2 class="auth-heading text-center mb-4">Sign up to {{ this.$root.appName }} </h2>					
 
             <div class="auth-form-container text-start mx-auto">
                 <form class="auth-form auth-signup-form">         
@@ -51,7 +51,7 @@ const Signup = {
                 <div class="h-100"></div>
                 <div class="overlay-content p-3 p-lg-4 rounded d-none">
                     <h5 class="mb-3 overlay-title">Explore Portal Admin Template</h5>
-                    <div>Portal is a free Bootstrap 5 admin dashboard template. You can download and view the template license <a href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">here</a>.</div>
+                    <div></div>
                 </div>
             </div>
         </div><!--//auth-background-overlay-->
