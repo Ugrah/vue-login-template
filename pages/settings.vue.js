@@ -1,10 +1,10 @@
-const Profile = {
+const Settings = {
     template: `
         <div class="app-wrapper pl-0">
             <Header/>
             <div class="app-content pt-3 p-md-3 p-lg-4">
                 <div class="container-xl">
-                    <h1 class="app-page-title">Profile</h1>
+                    <h1 class="app-page-title mt-5">Settings</h1>
                 </div>
                 <!--//container-fluid-->
             </div>
@@ -31,7 +31,7 @@ const Profile = {
             return this.$root.apiurls;
         },
     },
-    async created() {
+    async beforeCreate() {
         const authUser =  await this.$root.fetchAuthStatus();
         if (!authUser) this.$router.push('/login')
     },

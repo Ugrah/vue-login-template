@@ -13,7 +13,6 @@ const Footer = {
             return this.$root.authstatus;
         },
         getCurrentUrl() {
-            console.log( window.location.pathname )
             return window.location.pathname;
         }
     },

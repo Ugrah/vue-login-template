@@ -7,6 +7,12 @@ const Login = {
                 <h2 class="auth-heading text-center mb-5">Log in to Portal</h2>
                 <div class="auth-form-container text-start">
 
+                <div class="error" v-if="validationErrors.length > 0" style="color:red; margin-bottom: 1em;">
+                   <div v-for="error in validationErrors" class="alert alert-warning alert-dismissible fade show" role="alert">
+                       {{ error }}
+                   </div>
+               </div>
+
                 <form class="pt-1" @submit.prevent="validateAndSubmit">
                      <div class="form-group">
                          <input type="text" class="form-control" v-model="username" @input="validate" placeholder="Your Username *" value="" />
@@ -48,6 +54,12 @@ const Login = {
 
 </div><!--//row-->
  
+<style>
+  .auth-background-holder {
+    background:url('~./images/background/background-1.jpg') no-repeat center center;
+    background-size:cover;height:100vh;min-height:100%;
+  }
+</style>
 `,
     
     // `
@@ -105,7 +117,7 @@ const Login = {
             return this.$root.apiurls;
         },
     },
-    async created() {
+    async beforeCreate() {
         const authUser =  await this.$root.fetchAuthStatus();
         if (authUser) this.$router.push('/')
     },

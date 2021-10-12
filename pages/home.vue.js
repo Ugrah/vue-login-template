@@ -6,7 +6,7 @@ const Home = {
                 <div class="app-content pt-3 p-md-3 p-lg-4">
                     <div class="container-xl">
 
-                        <h1 class="app-page-title">Home</h1>
+                        <h1 class="app-page-title mt-5">Home</h1>
 
                         <div id="home-is-signedout" class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration" role="alert">
                             <div class="inner">
@@ -40,7 +40,7 @@ const Home = {
             </div>
         </template>`,
 
-    async created() {
+    async beforeCreate() {
         const authUser =  await this.$root.fetchAuthStatus();
         if (!authUser) this.$router.push('/login')
     },  
