@@ -143,22 +143,21 @@
             el: "#app",
             router: router,
 
-
             async created() {
                 window.addEventListener("resize", this.responsiveSidePanel);
 
-                const authUser =  await this.$root.fetchAuthStatus();
+                const authUser = await this.$root.fetchAuthStatus();
                 if (!authUser) this.$router.push('/login')
             },
             mounted() {
                 document.title = this.appName;
                 let w = window.innerWidth;
-                if( w >= 1200 ) this.tooglerIsOpen = true
+                if (w >= 1200) this.tooglerIsOpen = true
             },
 
             data() {
                 return {
-                    tooglerIsOpen: false,
+                    tooglerIsOpen: true,
                     appName: 'Vue Login Template',
                     authstatus: false,
                     apiurls: {
@@ -290,7 +289,7 @@
 
                 responsiveSidePanel() {
                     let w = window.innerWidth;
-                    if( w >= 1200 ) this.tooglerIsOpen = true
+                    if (w >= 1200) this.tooglerIsOpen = true
                     else this.tooglerIsOpen = false
                 },
 

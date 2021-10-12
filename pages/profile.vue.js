@@ -37,9 +37,6 @@ const Profile = {
         const authUser =  await this.$root.fetchAuthStatus();
         if (!authUser) this.$router.push('/login')
     },
-    mounted() {
-        this.$root.tooglerIsOpen = false
-    },
     methods: {
         async fetchAuthStatus() {
             if (localStorage.tokenAccess) {

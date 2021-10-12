@@ -5,7 +5,7 @@ on:
 name: 🚀 Deploy vue-template.maxmind.ma ON PUSH
 jobs:
   web-deploy:
-    name: 🎉 Deploy WOW APP LIVE
+    name: 🎉 Deploy VUE LOGIN TEMPLATE TEST
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
