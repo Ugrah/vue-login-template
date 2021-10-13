@@ -47,8 +47,6 @@ const Home = {
 
     data() {
         return {
-            email: "",
-            validationErrors: [],
         };
     },
     computed: {
